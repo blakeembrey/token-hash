@@ -1,5 +1,5 @@
 import { createHash } from "crypto";
-import { encode } from "universal-base64url";
+import { encode } from "@blakeembrey/base64url";
 
 /**
  * Return hash algorithm from JOSE header.
@@ -20,5 +20,5 @@ export function tokenHash(alg: string, token: string) {
     .update(token)
     .digest();
 
-  return encode(hash.slice(0, hash.length / 2).toString("latin1"));
+  return encode(hash.slice(0, hash.length / 2));
 }
